@@ -21,6 +21,8 @@
 		9DD2D3871975618900A51ADB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3691975618900A51ADB /* UIKit.framework */; };
 		9DD2D38F1975618900A51ADB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DD2D38D1975618900A51ADB /* InfoPlist.strings */; };
 		9DD2D3911975618900A51ADB /* iCloudCalendarSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2D3901975618900A51ADB /* iCloudCalendarSampleTests.m */; };
+		9DFF949919756E0600344745 /* MMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFF949819756E0600344745 /* MMPickerView.m */; };
+		9DFF949B197572B700344745 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFF949A197572B700344745 /* EventKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		9DD2D38C1975618900A51ADB /* iCloudCalendarSampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iCloudCalendarSampleTests-Info.plist"; sourceTree = "<group>"; };
 		9DD2D38E1975618900A51ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DD2D3901975618900A51ADB /* iCloudCalendarSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloudCalendarSampleTests.m; sourceTree = "<group>"; };
+		9DFF949719756E0600344745 /* MMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPickerView.h; sourceTree = "<group>"; };
+		9DFF949819756E0600344745 /* MMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPickerView.m; sourceTree = "<group>"; };
+		9DFF949A197572B700344745 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DFF949B197572B700344745 /* EventKit.framework in Frameworks */,
 				9DD2D3681975618900A51ADB /* CoreGraphics.framework in Frameworks */,
 				9DD2D36A1975618900A51ADB /* UIKit.framework in Frameworks */,
 				9DD2D3661975618900A51ADB /* Foundation.framework in Frameworks */,
@@ -101,6 +107,7 @@
 		9DD2D3641975618900A51ADB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9DFF949A197572B700344745 /* EventKit.framework */,
 				9DD2D3651975618900A51ADB /* Foundation.framework */,
 				9DD2D3671975618900A51ADB /* CoreGraphics.framework */,
 				9DD2D3691975618900A51ADB /* UIKit.framework */,
@@ -112,6 +119,7 @@
 		9DD2D36B1975618900A51ADB /* iCloudCalendarSample */ = {
 			isa = PBXGroup;
 			children = (
+				9DFF949519756DFB00344745 /* Libraries */,
 				9DD2D3741975618900A51ADB /* AppDelegate.h */,
 				9DD2D3751975618900A51ADB /* AppDelegate.m */,
 				9DD2D3771975618900A51ADB /* Main.storyboard */,
@@ -150,6 +158,23 @@
 				9DD2D38D1975618900A51ADB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DFF949519756DFB00344745 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				9DFF949619756E0600344745 /* MMPickerView */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		9DFF949619756E0600344745 /* MMPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				9DFF949719756E0600344745 /* MMPickerView.h */,
+				9DFF949819756E0600344745 /* MMPickerView.m */,
+			);
+			path = MMPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DFF949919756E0600344745 /* MMPickerView.m in Sources */,
 				9DD2D37C1975618900A51ADB /* ViewController.m in Sources */,
 				9DD2D3761975618900A51ADB /* AppDelegate.m in Sources */,
 				9DD2D3721975618900A51ADB /* main.m in Sources */,
@@ -456,6 +482,7 @@
 				9DD2D3961975618900A51ADB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DD2D3971975618900A51ADB /* Build configuration list for PBXNativeTarget "iCloudCalendarSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +491,7 @@
 				9DD2D3991975618900A51ADB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

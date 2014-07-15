@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+{
+    IBOutlet UIButton *btnStrtDate;
+    IBOutlet UIButton *btnEndDate;
+    
+}
 @end
