@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A234C462-642F-4853-A433-777AC1A01A5E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iCloudCalendarSample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>83018D1E-F1F2-4E4E-B8AD-14B6F7016726</key>
+		<string>https://github.com/rahuliOS1990/iCloudCalendarSample.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iCloudCalendarSample.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>83018D1E-F1F2-4E4E-B8AD-14B6F7016726</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rahuliOS1990/iCloudCalendarSample.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>83018D1E-F1F2-4E4E-B8AD-14B6F7016726</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>83018D1E-F1F2-4E4E-B8AD-14B6F7016726</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iCloudCalendarSample</string>
+		</dict>
+	</array>
+</dict>
+</plist>

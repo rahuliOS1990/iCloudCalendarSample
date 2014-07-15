@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DD2D3661975618900A51ADB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3651975618900A51ADB /* Foundation.framework */; };
+		9DD2D3681975618900A51ADB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3671975618900A51ADB /* CoreGraphics.framework */; };
+		9DD2D36A1975618900A51ADB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3691975618900A51ADB /* UIKit.framework */; };
+		9DD2D3701975618900A51ADB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DD2D36E1975618900A51ADB /* InfoPlist.strings */; };
+		9DD2D3721975618900A51ADB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2D3711975618900A51ADB /* main.m */; };
+		9DD2D3761975618900A51ADB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2D3751975618900A51ADB /* AppDelegate.m */; };
+		9DD2D3791975618900A51ADB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD2D3771975618900A51ADB /* Main.storyboard */; };
+		9DD2D37C1975618900A51ADB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2D37B1975618900A51ADB /* ViewController.m */; };
+		9DD2D37E1975618900A51ADB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD2D37D1975618900A51ADB /* Images.xcassets */; };
+		9DD2D3851975618900A51ADB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3841975618900A51ADB /* XCTest.framework */; };
+		9DD2D3861975618900A51ADB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3651975618900A51ADB /* Foundation.framework */; };
+		9DD2D3871975618900A51ADB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3691975618900A51ADB /* UIKit.framework */; };
+		9DD2D38F1975618900A51ADB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DD2D38D1975618900A51ADB /* InfoPlist.strings */; };
+		9DD2D3911975618900A51ADB /* iCloudCalendarSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2D3901975618900A51ADB /* iCloudCalendarSampleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DD2D3881975618900A51ADB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DD2D35A1975618900A51ADB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DD2D3611975618900A51ADB;
+			remoteInfo = iCloudCalendarSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9DD2D3621975618900A51ADB /* iCloudCalendarSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudCalendarSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DD2D3651975618900A51ADB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9DD2D3671975618900A51ADB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9DD2D3691975618900A51ADB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9DD2D36D1975618900A51ADB /* iCloudCalendarSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iCloudCalendarSample-Info.plist"; sourceTree = "<group>"; };
+		9DD2D36F1975618900A51ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9DD2D3711975618900A51ADB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9DD2D3731975618900A51ADB /* iCloudCalendarSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCloudCalendarSample-Prefix.pch"; sourceTree = "<group>"; };
+		9DD2D3741975618900A51ADB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9DD2D3751975618900A51ADB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9DD2D3781975618900A51ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9DD2D37A1975618900A51ADB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9DD2D37B1975618900A51ADB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9DD2D37D1975618900A51ADB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9DD2D3831975618900A51ADB /* iCloudCalendarSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCloudCalendarSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DD2D3841975618900A51ADB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9DD2D38C1975618900A51ADB /* iCloudCalendarSampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iCloudCalendarSampleTests-Info.plist"; sourceTree = "<group>"; };
+		9DD2D38E1975618900A51ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9DD2D3901975618900A51ADB /* iCloudCalendarSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloudCalendarSampleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DD2D35F1975618900A51ADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD2D3681975618900A51ADB /* CoreGraphics.framework in Frameworks */,
+				9DD2D36A1975618900A51ADB /* UIKit.framework in Frameworks */,
+				9DD2D3661975618900A51ADB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DD2D3801975618900A51ADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD2D3851975618900A51ADB /* XCTest.framework in Frameworks */,
+				9DD2D3871975618900A51ADB /* UIKit.framework in Frameworks */,
+				9DD2D3861975618900A51ADB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DD2D3591975618900A51ADB = {
+			isa = PBXGroup;
+			children = (
+				9DD2D36B1975618900A51ADB /* iCloudCalendarSample */,
+				9DD2D38A1975618900A51ADB /* iCloudCalendarSampleTests */,
+				9DD2D3641975618900A51ADB /* Frameworks */,
+				9DD2D3631975618900A51ADB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DD2D3631975618900A51ADB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DD2D3621975618900A51ADB /* iCloudCalendarSample.app */,
+				9DD2D3831975618900A51ADB /* iCloudCalendarSampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DD2D3641975618900A51ADB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DD2D3651975618900A51ADB /* Foundation.framework */,
+				9DD2D3671975618900A51ADB /* CoreGraphics.framework */,
+				9DD2D3691975618900A51ADB /* UIKit.framework */,
+				9DD2D3841975618900A51ADB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DD2D36B1975618900A51ADB /* iCloudCalendarSample */ = {
+			isa = PBXGroup;
+			children = (
+				9DD2D3741975618900A51ADB /* AppDelegate.h */,
+				9DD2D3751975618900A51ADB /* AppDelegate.m */,
+				9DD2D3771975618900A51ADB /* Main.storyboard */,
+				9DD2D37A1975618900A51ADB /* ViewController.h */,
+				9DD2D37B1975618900A51ADB /* ViewController.m */,
+				9DD2D37D1975618900A51ADB /* Images.xcassets */,
+				9DD2D36C1975618900A51ADB /* Supporting Files */,
+			);
+			path = iCloudCalendarSample;
+			sourceTree = "<group>";
+		};
+		9DD2D36C1975618900A51ADB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DD2D36D1975618900A51ADB /* iCloudCalendarSample-Info.plist */,
+				9DD2D36E1975618900A51ADB /* InfoPlist.strings */,
+				9DD2D3711975618900A51ADB /* main.m */,
+				9DD2D3731975618900A51ADB /* iCloudCalendarSample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DD2D38A1975618900A51ADB /* iCloudCalendarSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				9DD2D3901975618900A51ADB /* iCloudCalendarSampleTests.m */,
+				9DD2D38B1975618900A51ADB /* Supporting Files */,
+			);
+			path = iCloudCalendarSampleTests;
+			sourceTree = "<group>";
+		};
+		9DD2D38B1975618900A51ADB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DD2D38C1975618900A51ADB /* iCloudCalendarSampleTests-Info.plist */,
+				9DD2D38D1975618900A51ADB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DD2D3611975618900A51ADB /* iCloudCalendarSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DD2D3941975618900A51ADB /* Build configuration list for PBXNativeTarget "iCloudCalendarSample" */;
+			buildPhases = (
+				9DD2D35E1975618900A51ADB /* Sources */,
+				9DD2D35F1975618900A51ADB /* Frameworks */,
+				9DD2D3601975618900A51ADB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iCloudCalendarSample;
+			productName = iCloudCalendarSample;
+			productReference = 9DD2D3621975618900A51ADB /* iCloudCalendarSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9DD2D3821975618900A51ADB /* iCloudCalendarSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DD2D3971975618900A51ADB /* Build configuration list for PBXNativeTarget "iCloudCalendarSampleTests" */;
+			buildPhases = (
+				9DD2D37F1975618900A51ADB /* Sources */,
+				9DD2D3801975618900A51ADB /* Frameworks */,
+				9DD2D3811975618900A51ADB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DD2D3891975618900A51ADB /* PBXTargetDependency */,
+			);
+			name = iCloudCalendarSampleTests;
+			productName = iCloudCalendarSampleTests;
+			productReference = 9DD2D3831975618900A51ADB /* iCloudCalendarSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DD2D35A1975618900A51ADB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = AgileMobileDev;
+				TargetAttributes = {
+					9DD2D3821975618900A51ADB = {
+						TestTargetID = 9DD2D3611975618900A51ADB;
+					};
+				};
+			};
+			buildConfigurationList = 9DD2D35D1975618900A51ADB /* Build configuration list for PBXProject "iCloudCalendarSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DD2D3591975618900A51ADB;
+			productRefGroup = 9DD2D3631975618900A51ADB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DD2D3611975618900A51ADB /* iCloudCalendarSample */,
+				9DD2D3821975618900A51ADB /* iCloudCalendarSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DD2D3601975618900A51ADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD2D37E1975618900A51ADB /* Images.xcassets in Resources */,
+				9DD2D3701975618900A51ADB /* InfoPlist.strings in Resources */,
+				9DD2D3791975618900A51ADB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DD2D3811975618900A51ADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD2D38F1975618900A51ADB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DD2D35E1975618900A51ADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD2D37C1975618900A51ADB /* ViewController.m in Sources */,
+				9DD2D3761975618900A51ADB /* AppDelegate.m in Sources */,
+				9DD2D3721975618900A51ADB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DD2D37F1975618900A51ADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD2D3911975618900A51ADB /* iCloudCalendarSampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DD2D3891975618900A51ADB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DD2D3611975618900A51ADB /* iCloudCalendarSample */;
+			targetProxy = 9DD2D3881975618900A51ADB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9DD2D36E1975618900A51ADB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DD2D36F1975618900A51ADB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9DD2D3771975618900A51ADB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DD2D3781975618900A51ADB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9DD2D38D1975618900A51ADB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DD2D38E1975618900A51ADB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DD2D3921975618900A51ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9DD2D3931975618900A51ADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DD2D3951975618900A51ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
+				INFOPLIST_FILE = "iCloudCalendarSample/iCloudCalendarSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9DD2D3961975618900A51ADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
+				INFOPLIST_FILE = "iCloudCalendarSample/iCloudCalendarSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9DD2D3981975618900A51ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iCloudCalendarSample.app/iCloudCalendarSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "iCloudCalendarSampleTests/iCloudCalendarSampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9DD2D3991975618900A51ADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iCloudCalendarSample.app/iCloudCalendarSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
+				INFOPLIST_FILE = "iCloudCalendarSampleTests/iCloudCalendarSampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DD2D35D1975618900A51ADB /* Build configuration list for PBXProject "iCloudCalendarSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DD2D3921975618900A51ADB /* Debug */,
+				9DD2D3931975618900A51ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DD2D3941975618900A51ADB /* Build configuration list for PBXNativeTarget "iCloudCalendarSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DD2D3951975618900A51ADB /* Debug */,
+				9DD2D3961975618900A51ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9DD2D3971975618900A51ADB /* Build configuration list for PBXNativeTarget "iCloudCalendarSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DD2D3981975618900A51ADB /* Debug */,
+				9DD2D3991975618900A51ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DD2D35A1975618900A51ADB /* Project object */;
+}
