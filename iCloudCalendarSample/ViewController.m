@@ -20,12 +20,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+   // dateFormatter = [[NSDateFormatter alloc] init];
+    
+    //[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm a"];
+    
     btnEndDate.layer.borderWidth=1.0f;
     btnEndDate.layer.borderColor=[UIColor darkGrayColor].CGColor;
     
     btnStrtDate.layer.borderWidth=1.0f;
     btnStrtDate.layer.borderColor=[UIColor darkGrayColor].CGColor;
 	// Do any additional setup after loading the view, typically from a nib.
+
+  //  [self iCloudCalendar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,6 +40,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark- Text Field Delgates
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 #pragma Mark - Code To test for iCloud Calendar Api
 
@@ -105,24 +120,38 @@
     
     //Add Event to Calendar
     NSLog(@"Adding event!");
+
+    
+    
+
     EKEventStore *eventStore = [[EKEventStore alloc] init];
+    EKEvent *event = [EKEvent eventWithEventStore:eventStore];
+    event.title = txtFieldTitle.text;
+    event.startDate = strSelectedStrtDate;
+    event.endDate = strSelectedEndDate;
+    EKAlarm *reminder = [EKAlarm alarmWithRelativeOffset:-6*60*60];
+    [event addAlarm:reminder];
+    [event setCalendar:[eventStore defaultCalendarForNewEvents]];
     
-    EKEvent *event  = [EKEvent eventWithEventStore:eventStore];
-    event.title     = @"Event3";
+    NSTimeInterval alarmOffset = -1*60;//1 hour
+    EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:alarmOffset];
     
-    NSDate *startDate = [NSDate date];
-    event.calendar = cal;
-    event.startDate = startDate;
-    event.endDate = [startDate dateByAddingTimeInterval:3600];
+    [event addAlarm:alarm];
     
-    NSError *error = nil;
-    BOOL result = [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
-    if (result) {
-        NSLog(@"Saved event to event store.");
-    } else {
-        NSLog(@"Error saving event: %@.", error);
+    NSError *err;
+    BOOL saved = [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+    
+    // NSLog(@"here is the error %@",[eventStore saveEvent:event span:EKSpanThisEvent error:&err]);
+    if (saved == YES)
+    {
+        NSLog(@"evemt date %@",event.startDate);
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@""
+                                  message:@"Saved to calendar"
+                                  delegate:nil
+                                  cancelButtonTitle:@"Right On!" otherButtonTitles:nil] ;
+        [alertView show];
     }
-    
 
 }
 
@@ -140,7 +169,7 @@
                                                                                MMfont: [UIFont systemFontOfSize:18],
                                                                                MMvalueY: @3,MMselectedObject:[NSDate date]}
                                 completion:^(NSString *sel) {
-                                    
+                                    strSelectedStrtDate=[MMPickerView sharedView] .datePicker.date;
                                     [sender setTitle:[NSString stringWithFormat:@"%@",[MMPickerView sharedView] .datePicker.date] forState:UIControlStateNormal];
                                     
                                 }];
@@ -158,9 +187,57 @@
                                                                    MMvalueY: @3,MMselectedObject:[NSDate date]}
                                 completion:^(NSString *sel) {
                                    
+                                    strSelectedEndDate= [MMPickerView sharedView] .datePicker.date;
                                     [sender setTitle:[NSString stringWithFormat:@"%@",[MMPickerView sharedView] .datePicker.date] forState:UIControlStateNormal];
                                     
                                 }];
+    
+    
+    
+}
+
+
+#pragma mark- Create Event Method
+
+-(IBAction)btnCreateEventPressed:(id)sender
+{
+    if (strSelectedStrtDate ==NULL && strSelectedEndDate==NULL) {
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Please select start and end date." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil]show];
+    }
+    else if ([txtFieldTitle.text length]==0)
+    {
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Please select Event title." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil]show];
+    }
+    else
+    {
+      
+        NSComparisonResult result=[strSelectedStrtDate compare:strSelectedEndDate];
+        BOOL isEndDateBeforeStart=NO;
+        
+        if(result==NSOrderedAscending)
+        {
+            NSLog(@"today is less");
+        }
+        
+        else if(result==NSOrderedDescending)
+                {
+                    isEndDateBeforeStart=YES;
+                }else
+                {
+                    isEndDateBeforeStart=YES;
+                }
+        
+        if (isEndDateBeforeStart) {
+            [[[UIAlertView alloc] initWithTitle:nil message:@"End Date should be ahead of Start date" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil]show];
+            return;
+        }
+        else
+        {
+            [self iCloudCalendar];
+        }
+        
+    }
+    
     
 }
 

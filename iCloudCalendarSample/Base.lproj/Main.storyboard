@@ -31,6 +31,9 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnCreateEventPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8B9-eb-wH3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0c2-g3-Y6x">
                                 <rect key="frame" x="13" y="108" width="116" height="21"/>
@@ -44,6 +47,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="t5I-aJ-NxI"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TjP-pf-X5K">
                                 <rect key="frame" x="13" y="187" width="116" height="21"/>
@@ -99,6 +105,7 @@
                     <connections>
                         <outlet property="btnEndDate" destination="wkt-BD-DtV" id="rdx-Hb-rqo"/>
                         <outlet property="btnStrtDate" destination="PJ7-3T-MZS" id="cxM-Om-t2g"/>
+                        <outlet property="txtFieldTitle" destination="jir-MS-GYN" id="78b-Tz-3hc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

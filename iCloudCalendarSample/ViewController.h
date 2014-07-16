@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITextFieldDelegate>
 {
     IBOutlet UIButton *btnStrtDate;
     IBOutlet UIButton *btnEndDate;
+    
+    NSDate *strSelectedStrtDate;
+    NSDate *strSelectedEndDate;
+    IBOutlet UITextField *txtFieldTitle;
+  //  NSDateFormatter *dateFormatter;
     
 }
 @end

@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9DB66973197696D700BEA9D8 /* iCloudCalendarSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iCloudCalendarSample.entitlements; sourceTree = "<group>"; };
 		9DD2D3621975618900A51ADB /* iCloudCalendarSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudCalendarSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD2D3651975618900A51ADB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DD2D3671975618900A51ADB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +120,7 @@
 		9DD2D36B1975618900A51ADB /* iCloudCalendarSample */ = {
 			isa = PBXGroup;
 			children = (
+				9DB66973197696D700BEA9D8 /* iCloudCalendarSample.entitlements */,
 				9DFF949519756DFB00344745 /* Libraries */,
 				9DD2D3741975618900A51ADB /* AppDelegate.h */,
 				9DD2D3751975618900A51ADB /* AppDelegate.m */,
@@ -224,6 +226,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = AgileMobileDev;
 				TargetAttributes = {
+					9DD2D3611975618900A51ADB = {
+						DevelopmentTeam = G9L6KLS62L;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					9DD2D3821975618900A51ADB = {
 						TestTargetID = 9DD2D3611975618900A51ADB;
 					};
@@ -402,10 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = iCloudCalendarSample/iCloudCalendarSample.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
 				INFOPLIST_FILE = "iCloudCalendarSample/iCloudCalendarSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "68E95A8A-0B15-4E3A-A142-1CF69158136E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -415,10 +428,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = iCloudCalendarSample/iCloudCalendarSample.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
 				INFOPLIST_FILE = "iCloudCalendarSample/iCloudCalendarSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "68E95A8A-0B15-4E3A-A142-1CF69158136E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
