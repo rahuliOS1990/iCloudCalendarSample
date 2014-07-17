@@ -13,10 +13,10 @@
     IBOutlet UIButton *btnStrtDate;
     IBOutlet UIButton *btnEndDate;
     
-    NSDate *strSelectedStrtDate;
-    NSDate *strSelectedEndDate;
+    NSDate *selectedStrtDate;
+    NSDate *selectedEndDate;
     IBOutlet UITextField *txtFieldTitle;
-  //  NSDateFormatter *dateFormatter;
+  
     
 }
 @end

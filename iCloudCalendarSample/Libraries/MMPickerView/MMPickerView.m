@@ -498,7 +498,7 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
     //Add pickerView
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 44.0, 320.0, 216.0)];
     [_datePicker setDate:[NSDate date] animated:YES];
-	_datePicker.datePickerMode = UIDatePickerModeDate;
+	_datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     if (self.isMaxDateShow) {
     [_datePicker setMaximumDate:[NSDate date]];    
     }
