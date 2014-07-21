@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D64DC2C1978039200BDD8BB /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D64DC2B1978039200BDD8BB /* UIAlertView+Blocks.m */; };
 		9DD2D3661975618900A51ADB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3651975618900A51ADB /* Foundation.framework */; };
 		9DD2D3681975618900A51ADB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3671975618900A51ADB /* CoreGraphics.framework */; };
 		9DD2D36A1975618900A51ADB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD2D3691975618900A51ADB /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D64DC2A1978039200BDD8BB /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		9D64DC2B1978039200BDD8BB /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		9DB66973197696D700BEA9D8 /* iCloudCalendarSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iCloudCalendarSample.entitlements; sourceTree = "<group>"; };
 		9DD2D3621975618900A51ADB /* iCloudCalendarSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudCalendarSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD2D3651975618900A51ADB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D64DC291978038600BDD8BB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9D64DC2A1978039200BDD8BB /* UIAlertView+Blocks.h */,
+				9D64DC2B1978039200BDD8BB /* UIAlertView+Blocks.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		9DD2D3591975618900A51ADB = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 		9DFF949519756DFB00344745 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				9D64DC291978038600BDD8BB /* Categories */,
 				9DFF949619756E0600344745 /* MMPickerView */,
 			);
 			path = Libraries;
@@ -286,6 +299,7 @@
 			files = (
 				9DFF949919756E0600344745 /* MMPickerView.m in Sources */,
 				9DD2D37C1975618900A51ADB /* ViewController.m in Sources */,
+				9D64DC2C1978039200BDD8BB /* UIAlertView+Blocks.m in Sources */,
 				9DD2D3761975618900A51ADB /* AppDelegate.m in Sources */,
 				9DD2D3721975618900A51ADB /* main.m in Sources */,
 			);
@@ -413,12 +427,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iCloudCalendarSample/iCloudCalendarSample.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rahul Sharma (7375JZ6P6D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rahul Sharma (7375JZ6P6D)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
 				INFOPLIST_FILE = "iCloudCalendarSample/iCloudCalendarSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "68E95A8A-0B15-4E3A-A142-1CF69158136E";
+				PROVISIONING_PROFILE = "13BE0B6F-69E3-477B-A9CE-FA7DA80C59CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -429,12 +444,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iCloudCalendarSample/iCloudCalendarSample.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rahul Sharma (7375JZ6P6D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rahul Sharma (7375JZ6P6D)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
 				INFOPLIST_FILE = "iCloudCalendarSample/iCloudCalendarSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "68E95A8A-0B15-4E3A-A142-1CF69158136E";
+				PROVISIONING_PROFILE = "13BE0B6F-69E3-477B-A9CE-FA7DA80C59CE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
