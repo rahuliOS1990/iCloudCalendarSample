@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-eventStore = [[EKEventStore alloc] init];
+    eventStore = [[EKEventStore alloc] init];
     
     [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         /* This code will run when uses has made his/her choice */
@@ -52,7 +52,7 @@ eventStore = [[EKEventStore alloc] init];
         
     }];
     
-
+    
     btnEndDate.layer.borderWidth=1.0f;
     btnEndDate.layer.borderColor=[UIColor darkGrayColor].CGColor;
     
@@ -60,7 +60,7 @@ eventStore = [[EKEventStore alloc] init];
     btnStrtDate.layer.borderColor=[UIColor darkGrayColor].CGColor;
 	// Do any additional setup after loading the view, typically from a nib.
     
-  
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,9 +82,9 @@ eventStore = [[EKEventStore alloc] init];
 -(void)addToCalendar
 {
     
-   // EKEventStore *eventStore = [[EKEventStore alloc] init];
+    // EKEventStore *eventStore = [[EKEventStore alloc] init];
     
-      EKSource *localSource = nil;
+    EKSource *localSource = nil;
     
     
     EKSource *googleSource=nil;
@@ -94,18 +94,18 @@ eventStore = [[EKEventStore alloc] init];
         if (source.sourceType == EKSourceTypeCalDAV && [source.title isEqualToString:@"iCloud"])
         {
             localSource = source;
-           // break;
+            // break;
         }
         if (source.sourceType == EKSourceTypeCalDAV && ([source.title rangeOfString:@"gmail"].location!=NSNotFound || [source.title rangeOfString:@"google"].location!=NSNotFound || [source.title rangeOfString:@"Gmail"].location!=NSNotFound ) )
         {
             googleSource = source;
-         //   break;
+            //   break;
         }
     }
     if (localSource == nil)
     {
         [[[UIAlertView alloc] initWithTitle:nil message:@"iCloud Account is not configured. Go to Settings to configure Account." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil]show];
-
+        
         for (EKSource *source in eventStore.sources) {
             if (source.sourceType == EKSourceTypeLocal)
             {
@@ -115,16 +115,21 @@ eventStore = [[EKEventStore alloc] init];
         }
     }
     
+    EKCalendar *newCal=nil;
     
     
     if (localSource!=nil) {
-       [self addToiCloudCalendar:localSource];
+        [self addToiCloudCalendar:localSource];
+        
+        
+        
+        
+        
     }
     if (googleSource!=nil) {
         
-      
         
-        EKCalendar *newCal=nil;
+        
         
         NSArray *arrCal=[eventStore calendarsForEntityType:EKEntityTypeEvent];
         for (EKCalendar *calendar in arrCal) {
@@ -134,11 +139,11 @@ eventStore = [[EKEventStore alloc] init];
                 newCal=calendar;
                 break;
             }
-
+            
         }
-      
+        
         NSLog(@"cal property %d",newCal.allowsContentModifications);
-         NSError *error=nil;
+        NSError *error=nil;
         BOOL isSaveCalendar= [eventStore saveCalendar:newCal commit:YES error:&error];
         
         
@@ -170,15 +175,15 @@ eventStore = [[EKEventStore alloc] init];
                 }
             }];
         }
-    else
-    {
-        [self saveEventToCalendar:newCal];
+        else
+        {
+            [self saveEventToCalendar:newCal];
+        }
+        
+        
     }
-       
     
-    }
     
-
     
     
     
@@ -187,8 +192,9 @@ eventStore = [[EKEventStore alloc] init];
 
 -(void)addToiCloudCalendar:(EKSource*)source
 {
- 
     
+    
+    EKCalendar *newCal=nil;
     
     NSString *calendarIdentifier = [[NSUserDefaults standardUserDefaults] valueForKey:@"my_calendar_identifier"];
     
@@ -196,18 +202,18 @@ eventStore = [[EKEventStore alloc] init];
     
     
     //Create the calendar
-    EKCalendar *cal;
+    
     if (calendarIdentifier == nil)
     {
-        cal = [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:eventStore];
+        newCal = [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:eventStore];
         
         
-        cal.title = @"Demo1 Calendar";
-        cal.source = source;
+        newCal.title = @"Demo1 Calendar";
+        newCal.source = source;
         
-        NSString *calendarIdentifier = [cal calendarIdentifier];
+        NSString *calendarIdentifier = [newCal calendarIdentifier];
         NSError *error=nil;
-        BOOL isSaveCalendar= [eventStore saveCalendar:cal commit:YES error:&error];
+        BOOL isSaveCalendar= [eventStore saveCalendar:newCal commit:YES error:&error];
         NSLog(@"print eeror %@",error.description);
         
         if (isSaveCalendar) {
@@ -215,88 +221,47 @@ eventStore = [[EKEventStore alloc] init];
             [[NSUserDefaults standardUserDefaults] setObject:calendarIdentifier forKey:@"my_calendar_identifier"];
             
         }
-
-        
-        
-        // Create the predicate from the event store's instance method
-        NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:selectedStrtDate
-                                                                     endDate:selectedEndDate
-                                                                   calendars:nil];
-        
-        // Fetch all events that match the predicate
-        NSArray *events = [eventStore eventsMatchingPredicate:predicate];
-        
-        if (events.count>0) {
-            
-            
-            [UIAlertView showWithTitle:nil message:@"There is already an event on this date. Do you still want to procced?" cancelButtonTitle:nil otherButtonTitles:[NSArray arrayWithObjects:@"Yes",@"No", nil] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                switch (buttonIndex) {
-                    case 1:
-                    {
-                        return ;
-                    }
-                        break;
-                    case 0:
-                    {
-                        [self saveEventToCalendar:cal];
-                    }
-                        break;
-                        
-                    default:
-                        break;
-                }
-            }];
-            
-        }
-        else
-        {
-            [self saveEventToCalendar:cal];
-        }
-        
-        
-        
     }
-    else {
-        cal = [eventStore calendarWithIdentifier:calendarIdentifier];
-        
-        
-        // Create the predicate from the event store's instance method
-        NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:selectedStrtDate
-                                                                     endDate:selectedEndDate
-                                                                   calendars:nil];
-        
-        // Fetch all events that match the predicate
-        NSArray *events = [eventStore eventsMatchingPredicate:predicate];
-        
-        if (events.count>0) {
-            
-            
-            [UIAlertView showWithTitle:nil message:@"There is already an event on this date. Do you still want to procced?" cancelButtonTitle:nil otherButtonTitles:[NSArray arrayWithObjects:@"Yes",@"No", nil] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                switch (buttonIndex) {
-                    case 1:
-                    {
-                        return ;
-                    }
-                        break;
-                    case 0:
-                    {
-                        [self saveEventToCalendar:cal];
-                    }
-                        break;
-                        
-                    default:
-                        break;
-                }
-            }];
-        }
-        else
-        {
-            [self saveEventToCalendar:cal];
-        }
-        
-        
-        
+    else
+    {
+        newCal = [eventStore calendarWithIdentifier:calendarIdentifier];
     }
+    
+    NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:selectedStrtDate
+                                                                 endDate:selectedEndDate
+                                                               calendars:nil];
+    
+    // Fetch all events that match the predicate
+    NSArray *events = [eventStore eventsMatchingPredicate:predicate];
+    
+    if (events.count>0) {
+        
+        
+        [UIAlertView showWithTitle:nil message:@"There is already an event on this date. Do you still want to procced?" cancelButtonTitle:nil otherButtonTitles:[NSArray arrayWithObjects:@"Yes",@"No", nil] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            switch (buttonIndex) {
+                case 1:
+                {
+                    return ;
+                }
+                    break;
+                case 0:
+                {
+                    [self saveEventToCalendar:newCal];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+    }
+    else
+    {
+        [self saveEventToCalendar:newCal];
+    }
+    
+    
+    
     
     
 }
@@ -334,7 +299,7 @@ eventStore = [[EKEventStore alloc] init];
         [alertView show];
     }
     
-
+    
     
     
 }
@@ -353,7 +318,7 @@ eventStore = [[EKEventStore alloc] init];
                                                                    MMfont: [UIFont systemFontOfSize:18],
                                                                    MMvalueY: @3,MMselectedObject:[NSDate date]}
                                 completion:^(NSString *sel) {
-                                        [btnStrtDate setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                                    [btnStrtDate setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                                     selectedStrtDate=[MMPickerView sharedView] .datePicker.date;
                                     [sender setTitle:[NSString stringWithFormat:@"%@",[MMPickerView sharedView] .datePicker.date] forState:UIControlStateNormal];
                                     
@@ -372,7 +337,7 @@ eventStore = [[EKEventStore alloc] init];
                                                                    MMvalueY: @3,MMselectedObject:[NSDate date]}
                                 completion:^(NSString *sel) {
                                     [btnEndDate setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
+                                    
                                     selectedEndDate= [MMPickerView sharedView] .datePicker.date;
                                     [sender setTitle:[NSString stringWithFormat:@"%@",[MMPickerView sharedView] .datePicker.date] forState:UIControlStateNormal];
                                     
@@ -433,8 +398,8 @@ eventStore = [[EKEventStore alloc] init];
 {
     [btnStrtDate setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [btnEndDate setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-
-
+    
+    
     [btnStrtDate setTitle:@"Please select start Date" forState:UIControlStateNormal];
     [btnEndDate setTitle:@"Please select end Date" forState:UIControlStateNormal];
     
@@ -470,7 +435,7 @@ eventStore = [[EKEventStore alloc] init];
         
         
     }];
-
+    
     EKEventEditViewController *addController = [[EKEventEditViewController alloc] initWithNibName:nil bundle:nil];
     
     
@@ -483,9 +448,9 @@ eventStore = [[EKEventStore alloc] init];
     }];
     
     addController.editViewDelegate = self;
-
-
-
+    
+    
+    
 }
 
 
