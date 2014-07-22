@@ -79,7 +79,7 @@ eventStore = [[EKEventStore alloc] init];
 
 #pragma mark - Code To test for iCloud Calendar Api
 
--(void)addToiCloudCalendar
+-(void)addToCalendar
 {
     
    // EKEventStore *eventStore = [[EKEventStore alloc] init];
@@ -118,114 +118,19 @@ eventStore = [[EKEventStore alloc] init];
     
     
     if (localSource!=nil) {
-      //  [self addToCalendar:localSource withStore:eventStore];
+       [self addToiCloudCalendar:localSource];
     }
     if (googleSource!=nil) {
         
-        
-        /*
-        
-        NSString *calendarIdentifier = [[NSUserDefaults standardUserDefaults] objectForKey:@"google_identifier"];
-        
-        
-        
-        
-        //Create the calendar
-        EKCalendar *cal=nil;
-        if (calendarIdentifier == nil)
-        {
-
-        
-        
-            cal = [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:eventStore];
-            
-            
-            NSLog(@"print cal %d",cal.allowsContentModifications);
-            
-            // Create the predicate from the event store's instance method
-            NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:selectedStrtDate
-                                                                         endDate:selectedEndDate
-                                                                       calendars:nil];
-            
-            // Fetch all events that match the predicate
-            NSArray *events = [eventStore eventsMatchingPredicate:predicate];
-            
-            if (events.count>0) {
-                
-                
-                [UIAlertView showWithTitle:nil message:@"There is already an event on this date. Do you still want to procced?" cancelButtonTitle:nil otherButtonTitles:[NSArray arrayWithObjects:@"Yes",@"No", nil] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                    switch (buttonIndex) {
-                        case 1:
-                        {
-                            return ;
-                        }
-                            break;
-                            
-                        default:
-                            break;
-                    }
-                }];
-                
-            }
-            
-            cal.title = @"Google Calendar";
-            cal.source = googleSource;
-            
-            
-            NSString *calendarIdentifier = [cal calendarIdentifier];
-            NSError *error=nil;
-            
-            BOOL isSaveCalendar= [eventStore saveCalendar:cal commit:YES error:&error];
-            NSLog(@"print eeror %@",error.description);
-            
-            if (isSaveCalendar) {
-                
-                [[NSUserDefaults standardUserDefaults] setObject:calendarIdentifier forKey:@"google_identifier"];
-                
-            }
-            
-        }
-        else {
-            cal = [eventStore calendarWithIdentifier:calendarIdentifier];
-            
-            
-            // Create the predicate from the event store's instance method
-            NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:selectedStrtDate
-                                                                         endDate:selectedEndDate
-                                                                       calendars:nil];
-            
-            // Fetch all events that match the predicate
-            NSArray *events = [eventStore eventsMatchingPredicate:predicate];
-            
-            if (events.count>0) {
-                
-                
-                [UIAlertView showWithTitle:nil message:@"There is already an event on this date. Do you still want to procced?" cancelButtonTitle:nil otherButtonTitles:[NSArray arrayWithObjects:@"Yes",@"No", nil] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                    switch (buttonIndex) {
-                        case 1:
-                        {
-                            return ;
-                        }
-                            break;
-                            
-                        default:
-                            break;
-                    }
-                }];
-            }
-            
-            
-            
-        }
-        
-        
-        */
+      
         
         EKCalendar *newCal=nil;
         
         NSArray *arrCal=[eventStore calendarsForEntityType:EKEntityTypeEvent];
         for (EKCalendar *calendar in arrCal) {
-            if (calendar.type== EKCalendarTypeCalDAV && [calendar.title isEqualToString:@"iphone03rahul@gmail.com"]) {
+            
+            if (calendar.type== EKCalendarTypeCalDAV && ([calendar.title rangeOfString:@"gmail"].location!=NSNotFound || [calendar.title rangeOfString:@"google"].location!=NSNotFound || [calendar.title rangeOfString:@"Gmail"].location!=NSNotFound ) ) {
+                
                 newCal=calendar;
                 break;
             }
@@ -237,47 +142,40 @@ eventStore = [[EKEventStore alloc] init];
         BOOL isSaveCalendar= [eventStore saveCalendar:newCal commit:YES error:&error];
         
         
-        EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-        event.calendar=newCal;
-        event.title = txtFieldTitle.text;
-        event.startDate = selectedStrtDate;
-        event.endDate = selectedEndDate;
-        [event setNotes:@"Notes for the day"];
+        NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:selectedStrtDate
+                                                                     endDate:selectedEndDate
+                                                                   calendars:[NSArray arrayWithObject:newCal]];
         
-        EKAlarm *reminder = [EKAlarm alarmWithRelativeOffset:-6*60*60];
-       // [event addAlarm:reminder];
-     
-
-      //  [event setCalendar:[eventStore defaultCalendarForNewEvents]];
-     
+        // Fetch all events that match the predicate
+        NSArray *events = [eventStore eventsMatchingPredicate:predicate];
         
-    
-        NSTimeInterval alarmOffset = -1*60;//1 hour
-        EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:alarmOffset];
-        
-      //  [event addAlarm:alarm];
-        
-        NSError *err;
-        BOOL saved = [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
-        
-        NSError *commitError;
-        [eventStore commit:&commitError];
-        [eventStore saveCalendar:newCal commit:YES error:&error];
-        [eventStore refreshSourcesIfNecessary];
-        
-        
-        // NSLog(@"here is the error %@",[eventStore saveEvent:event span:EKSpanThisEvent error:&err]);
-        if (saved == YES)
-        {
-            NSLog(@"evemt date %@",event.startDate);
-            UIAlertView *alertView = [[UIAlertView alloc]
-                                      initWithTitle:@""
-                                      message:@"Saved to calendar"
-                                      delegate:nil
-                                      cancelButtonTitle:@"Ok" otherButtonTitles:nil] ;
-            [alertView show];
+        if (events.count>0) {
+            
+            
+            [UIAlertView showWithTitle:nil message:@"There is already an event on this date. Do you still want to procced?" cancelButtonTitle:nil otherButtonTitles:[NSArray arrayWithObjects:@"Yes",@"No", nil] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                switch (buttonIndex) {
+                    case 1:
+                    {
+                        return ;
+                    }
+                        break;
+                    case 0:
+                    {
+                        [self saveEventToCalendar:newCal];
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }];
         }
-        
+    else
+    {
+        [self saveEventToCalendar:newCal];
+    }
+       
+    
     }
     
 
@@ -286,8 +184,8 @@ eventStore = [[EKEventStore alloc] init];
     
 }
 
-/*
--(void)addToCalendar:(EKSource*)source withStore:(EKEventStore*)eventStore
+
+-(void)addToiCloudCalendar:(EKSource*)source
 {
  
     
@@ -304,6 +202,20 @@ eventStore = [[EKEventStore alloc] init];
         cal = [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:eventStore];
         
         
+        cal.title = @"Demo1 Calendar";
+        cal.source = source;
+        
+        NSString *calendarIdentifier = [cal calendarIdentifier];
+        NSError *error=nil;
+        BOOL isSaveCalendar= [eventStore saveCalendar:cal commit:YES error:&error];
+        NSLog(@"print eeror %@",error.description);
+        
+        if (isSaveCalendar) {
+            
+            [[NSUserDefaults standardUserDefaults] setObject:calendarIdentifier forKey:@"my_calendar_identifier"];
+            
+        }
+
         
         
         // Create the predicate from the event store's instance method
@@ -324,6 +236,11 @@ eventStore = [[EKEventStore alloc] init];
                         return ;
                     }
                         break;
+                    case 0:
+                    {
+                        [self saveEventToCalendar:cal];
+                    }
+                        break;
                         
                     default:
                         break;
@@ -331,20 +248,12 @@ eventStore = [[EKEventStore alloc] init];
             }];
             
         }
-        
-        cal.title = @"Demo1 Calendar";
-        cal.source = source;
-        
-        NSString *calendarIdentifier = [cal calendarIdentifier];
-        NSError *error=nil;
-        BOOL isSaveCalendar= [eventStore saveCalendar:cal commit:YES error:&error];
-        NSLog(@"print eeror %@",error.description);
-        
-        if (isSaveCalendar) {
-            
-            [[NSUserDefaults standardUserDefaults] setObject:calendarIdentifier forKey:@"my_calendar_identifier"];
-            
+        else
+        {
+            [self saveEventToCalendar:cal];
         }
+        
+        
         
     }
     else {
@@ -369,17 +278,32 @@ eventStore = [[EKEventStore alloc] init];
                         return ;
                     }
                         break;
+                    case 0:
+                    {
+                        [self saveEventToCalendar:cal];
+                    }
+                        break;
                         
                     default:
                         break;
                 }
             }];
         }
+        else
+        {
+            [self saveEventToCalendar:cal];
+        }
         
         
         
     }
     
+    
+}
+
+
+-(void)saveEventToCalendar:(EKCalendar*)calendar
+{
     
     
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
@@ -388,9 +312,8 @@ eventStore = [[EKEventStore alloc] init];
     event.endDate = selectedEndDate;
     [event setNotes:@"Notes for the day"];
     
-    EKAlarm *reminder = [EKAlarm alarmWithRelativeOffset:-6*60*60];
-    [event addAlarm:reminder];
-    [event setCalendar:[eventStore defaultCalendarForNewEvents]];
+    
+    [event setCalendar:calendar];
     
     NSTimeInterval alarmOffset = -1*60;//1 hour
     EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:alarmOffset];
@@ -400,22 +323,23 @@ eventStore = [[EKEventStore alloc] init];
     NSError *err;
     BOOL saved = [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
     
-    // NSLog(@"here is the error %@",[eventStore saveEvent:event span:EKSpanThisEvent error:&err]);
     if (saved == YES)
     {
         NSLog(@"evemt date %@",event.startDate);
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@""
-                                  message:@"Saved to calendar"
+                                  message:[NSString stringWithFormat:@"Saved to calendar %@",calendar.title]
                                   delegate:nil
                                   cancelButtonTitle:@"Ok" otherButtonTitles:nil] ;
         [alertView show];
     }
     
+
+    
     
 }
 
-*/
+
 
 
 -(IBAction)btnStartTimePressed:(UIButton*)sender
@@ -498,7 +422,7 @@ eventStore = [[EKEventStore alloc] init];
         }
         else
         {
-            [self addToiCloudCalendar];
+            [self addToCalendar];
         }
         
     }

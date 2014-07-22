@@ -367,7 +367,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rahul Sharma (7375JZ6P6D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rahul Sharma (7375JZ6P6D)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -385,6 +386,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "68E95A8A-0B15-4E3A-A142-1CF69158136E";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -405,7 +407,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rahul Sharma (7375JZ6P6D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rahul Sharma (7375JZ6P6D)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -416,6 +419,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "68E95A8A-0B15-4E3A-A142-1CF69158136E";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -433,7 +437,7 @@
 				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
 				INFOPLIST_FILE = "iCloudCalendarSample/iCloudCalendarSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "13BE0B6F-69E3-477B-A9CE-FA7DA80C59CE";
+				PROVISIONING_PROFILE = "E613DB4F-F0C7-470C-9032-6F4B9A7C09B8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -450,7 +454,7 @@
 				GCC_PREFIX_HEADER = "iCloudCalendarSample/iCloudCalendarSample-Prefix.pch";
 				INFOPLIST_FILE = "iCloudCalendarSample/iCloudCalendarSample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "13BE0B6F-69E3-477B-A9CE-FA7DA80C59CE";
+				PROVISIONING_PROFILE = "E613DB4F-F0C7-470C-9032-6F4B9A7C09B8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
