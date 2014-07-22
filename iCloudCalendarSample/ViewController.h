@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKitUI/EventKitUI.h>
 
-@interface ViewController : UIViewController<UITextFieldDelegate>
+@interface ViewController : UIViewController<UITextFieldDelegate,EKEventEditViewDelegate>
 {
     IBOutlet UIButton *btnStrtDate;
     IBOutlet UIButton *btnEndDate;
@@ -16,7 +17,7 @@
     NSDate *selectedStrtDate;
     NSDate *selectedEndDate;
     IBOutlet UITextField *txtFieldTitle;
-  
+    EKEventStore *eventStore;
     
 }
 @end
